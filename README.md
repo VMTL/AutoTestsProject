@@ -19,4 +19,5 @@ In Cucumber tests browsers parameters are passed thorugh Scnario Outline, in Tes
 mvn clean test -DbrowsersMvn=Chrome,FF
 ```
 
-## Reporting: Allure Reports results directoy is set to Jenkins project workspace, but can be changed to /target
+## Reporting:
+Allure Reports results directoy is set to Jenkins project workspace, but can be changed to /target
