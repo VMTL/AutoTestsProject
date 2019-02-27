@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test Suite">
+
+	<listeners>
+        <listener class-name="helpers.CustomizeListenerTNG" />
+    </listeners>
+
+    <test name="Running API test">
+    	<classes>
+      		<class name="tests.API_Tests" />
+    	</classes>
+  	</test>
+
+ 	<test name="Running UI tests">
+    	<classes>
+      		<class name="tests.SmokeTestNG" />
+    	</classes>
+  	</test>
+
+  	<test name="Running UI tests with Cucumber">
+    	<classes>
+      		<class name="cucumber.runners.CucumberTestNGrunner" />
+    	</classes>
+  	</test>
+
+ 
+ <test name="Running Angular test with NgDriver">
+    	<classes>
+      		<class name="tests.angularTest" />
+    	</classes>
+  	</test>
+</suite> <!-- Suite -->
