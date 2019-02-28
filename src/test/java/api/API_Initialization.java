@@ -3,11 +3,11 @@ package api;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import com.google.gson.JsonObject;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.config.ConnectionConfig;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
-import net.minidev.json.JSONObject;
 
 public class API_Initialization {
 	
@@ -23,17 +23,19 @@ public class API_Initialization {
 	}
 	
 	public API_Initialization(String baseUri, String basePath, String targetUri, Map<String, String> headersMap,
-							Map<String, String> parametersMap, JSONObject jsonBody, String methodType) {
+							Map<String, String> parametersMap, JsonObject jsonBody, String methodType) {
 		
 		httpRequest = RestAssured.given();
 		httpRequest.config(RestAssured.config = RestAssured.config().connectionConfig(ConnectionConfig.connectionConfig()
-				.closeIdleConnectionsAfterEachResponseAfter(3000, TimeUnit.MILLISECONDS)))
-			.body(jsonBody)
+			.closeIdleConnectionsAfterEachResponseAfter(3000, TimeUnit.MILLISECONDS)))
+			//.body(jsonBody)
 			.baseUri(baseUri)
 			.basePath(basePath)
 			.headers(headersMap)
-			.queryParams(parametersMap)
-		;
+			.queryParams(parametersMap);
+		if(jsonBody != null)
+			httpRequest.body(jsonBody);
+		
 		switch(methodType) {
 			case "POST" : this.response = httpRequest.post(targetUri);
 			break;
