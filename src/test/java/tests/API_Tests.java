@@ -8,14 +8,12 @@ import org.testng.annotations.Test;
 
 import api.API_Initialization;
 import helpers.Read_Excel;
-import net.minidev.json.JSONObject;
 
 public class API_Tests {
 
 	private Map<String, String> headersMap;
 	private Map<String, String> parametersMap;
 	private Read_Excel readExcel;
-	private JSONObject jsonBody;
 	private String baseUri;
 	
 	@BeforeClass(description = "Reading data from excel to prepare API call")
@@ -28,15 +26,17 @@ public class API_Tests {
 		parametersMap = new HashMap<String, String>(readExcel.excelToMap("Parameters"));
 		
 		//CREATE A NEW JSON AND READ A DATA WITH JASON FROM EXCEL SHEET
-		jsonBody = new JSONObject();
-		jsonBody = readExcel.exceSimpleArraylToJson("getByEmail");
+		//jsonBody = new JsonObject();
+		//jsonBody = readExcel.excelSimpleArraylToJson("getData");
+		
+		//Empty json request body will be used
 		
 		baseUri = "https://www.alphavantage.co/";
 	}
 	
 	@Test(description = "Checking Global Quote data")
 	public void alphaVantageMSFT(){
-		API_Initialization apiIni = new API_Initialization(baseUri, "query", "", headersMap, parametersMap, jsonBody, "GET");
+		API_Initialization apiIni = new API_Initialization(baseUri, "query", "", headersMap, parametersMap, null, "GET");
 		apiIni.getResponse().then().statusCode(200).contentType("application/json").root("$.Global Quote");
 	}
 }
