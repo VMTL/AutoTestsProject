@@ -11,15 +11,15 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import net.minidev.json.JSONObject;
-import net.minidev.json.parser.JSONParser;
-import net.minidev.json.parser.ParseException;
+import com.google.gson.JsonObject;
+import helpers.JSONparser;
 
 public class Read_Excel{
 
 	public String fileName;
 	public FileInputStream ExcelFile;
 	public XSSFWorkbook ExcelWBook;
+	
 	private XSSFSheet ExcelWSheet;
 	private String Cell;
 	private XSSFRow Row;
@@ -122,25 +122,19 @@ public class Read_Excel{
 		return arrayExcelData;
 	}
 	
-	public JSONObject excelToJson(String sheetName){
+	//Reading two columns in excel: one for a parameter name and second one for a parameter value
+	public JsonObject excelToJson(String sheetName){
 		Object[][] excelObject = excelToArray(sheetName);
-		JSONObject requestParams = new JSONObject();
-			for(int i = 0; i < excelObject.length; i++) {
-				for(int j = 0; j < 2; j++) {
-					requestParams.put((String) excelObject[i][0], excelObject[i][j]);
-				}
-			}
-	return requestParams;
+		JsonObject jsObj = new JSONparser().createNewJson();
+		for(int i = 0; i < excelObject.length; i++) {
+			jsObj.addProperty(excelObject[i][0].toString(),excelObject[i][1].toString());
+		}
+		return jsObj;
 	}
 	
-	public JSONObject exceSimpleArraylToJson(String sheetName){
+	//Reading a cell with a json string inside
+	public JsonObject excelSimpleArraylToJson(String sheetName){
 		String[] excelObject = getExcelDataSimpleArray(sheetName);
-		JSONObject requestParams = null;
-		try {
-			requestParams = (JSONObject) new JSONParser().parse(excelObject[0].toString());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-	return requestParams;
+		return new JSONparser().jsonObjFromString(excelObject[0].toString());
 	}
 }
