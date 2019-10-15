@@ -25,10 +25,4 @@
     	</classes>
   	</test>
 
- 
- <test name="Running Angular test with NgDriver">
-    	<classes>
-      		<class name="tests.angularTest" />
-    	</classes>
-  	</test>
 </suite> <!-- Suite -->

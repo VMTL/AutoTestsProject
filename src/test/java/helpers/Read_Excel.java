@@ -41,6 +41,11 @@ public class Read_Excel{
 			e.printStackTrace();
 		}
 	}
+	
+	public String excelCellToString(String sheetName){
+		String[] excelObject = getExcelDataSimpleArray(sheetName);
+		return excelObject[0].toString();
+	}
 
 	public Object[][] excelToArray(String sheetName) {
 		String[][] arrayExcelData = {};
@@ -125,7 +130,7 @@ public class Read_Excel{
 	//Reading two columns in excel: one for a parameter name and second one for a parameter value
 	public JsonObject excelToJson(String sheetName){
 		Object[][] excelObject = excelToArray(sheetName);
-		JsonObject jsObj = new JSONparser().createNewJson();
+		JsonObject jsObj = new JSONparser().getJsonObject();
 		for(int i = 0; i < excelObject.length; i++) {
 			jsObj.addProperty(excelObject[i][0].toString(),excelObject[i][1].toString());
 		}

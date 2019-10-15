@@ -6,7 +6,16 @@ import com.google.gson.JsonParser;
 
 public class JSONparser {
 
-	private JsonArray jsonArr;	
+	private JsonArray jsonArr;
+	private JsonObject jsonObject;
+	
+	public JSONparser() {
+		this.jsonObject = new JsonObject();
+	}
+	
+	public JsonObject getJsonObject() {
+		return this.jsonObject;
+	}
 	
 	public JsonObject jsonObjFromString(String jsonString) {
 		return new JsonParser().parse(jsonString).getAsJsonObject();
@@ -20,9 +29,5 @@ public class JSONparser {
 			System.out.println("An element is Not a JSON array");
 		}
 		return jsonArr;
-	}
-	
-	public JsonObject createNewJson() {
-		return new JsonObject();
 	}
 }
