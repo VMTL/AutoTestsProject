@@ -20,7 +20,7 @@
 		<RESTassured.version>4.1.2</RESTassured.version>
 		<Cucumber.version>4.5.2</Cucumber.version>
 		<allure.version>2.12.1</allure.version>
-		<jackson.version>2.9.9</jackson.version>
+		<jackson.version>2.10.0</jackson.version>
   </properties>
 
   <dependencies>
