@@ -49,9 +49,9 @@ public class angularTest extends BaseTestNG{
 		angPage.driver.asyncScriptWait(10);
 		String jsonBindingString = angPage.ngBinding().getText();
 		JSONparser jsParse = new JSONparser();
-		jsParse.jsonObj(jsonBindingString);
-		assertEquals(jsParse.jsonObj.get("name").getAsString(), "nameTest");
-		assertEquals(jsParse.jsonObj.get("email").getAsString(), "email@gmail.com");
+		jsParse.jsonObjFromString(jsonBindingString);
+		assertEquals(jsParse.getJsonObject().get("name").getAsString(), "nameTest");
+		assertEquals(jsParse.getJsonObject().get("email").getAsString(), "email@gmail.com");
 	}
 	
 	@Test(description = "Interest test", dependsOnMethods = {"profileTest"})
@@ -64,8 +64,8 @@ public class angularTest extends BaseTestNG{
 		angPage.driver.asyncScriptWait(10);
 		String jsonBindingString = angPage.ngBinding().getText();
 		JSONparser jsParse = new JSONparser();
-		jsParse.jsonObj(jsonBindingString);
-		assertEquals(jsParse.jsonObj.get("type").getAsString(), "xbox");
+		jsParse.jsonObjFromString(jsonBindingString);
+		assertEquals(jsParse.getJsonObject().get("type").getAsString(), "xbox");
 	}
 	
 	@Test(description = "Payment test", dependsOnMethods = {"interestTest"})

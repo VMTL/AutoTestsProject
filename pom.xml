@@ -12,15 +12,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<aspectjweaver.version>1.9.2</aspectjweaver.version>
+		<aspectjweaver.version>1.9.4</aspectjweaver.version>
 		<jenkinsWorkspaceAllure.path>C:\Jenkins\workspace\AutomationTest</jenkinsWorkspaceAllure.path>
 		<testNG.version>6.14.3</testNG.version>
 		<Selenium.version>3.14.0</Selenium.version>
 		<ApachePOI.version>3.9</ApachePOI.version>
-		<RESTassured.version>2.9.0</RESTassured.version>
-		<Cucumber.version>4.2.3</Cucumber.version>
-		<allure.version>2.10.0</allure.version>
-		<jackson.version>2.9.9.2</jackson.version>
+		<RESTassured.version>4.1.2</RESTassured.version>
+		<Cucumber.version>4.5.2</Cucumber.version>
+		<allure.version>2.12.1</allure.version>
+		<jackson.version>2.9.9</jackson.version>
   </properties>
 
   <dependencies>
@@ -127,23 +127,21 @@
 		<!-- RestAssured -->
 		
 		<dependency>
-			<groupId>com.jayway.restassured</groupId>
-			<artifactId>rest-assured</artifactId>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured</artifactId>
 			<version>${RESTassured.version}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.jayway.restassured</groupId>
-			<artifactId>json-schema-validator</artifactId>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-schema-validator</artifactId>
 			<version>${RESTassured.version}</version>
 		</dependency>
 		
-		
-		<!-- Working with JSon -->
 		<dependency>
-			<groupId>com.jayway.jsonpath</groupId>
-			<artifactId>json-path</artifactId>
-			<version>2.4.0</version>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-path</artifactId>
+			<version>${RESTassured.version}</version>
 		</dependency>
 		
 		<dependency>
@@ -153,19 +151,13 @@
     		<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-    		<groupId>net.minidev</groupId>
-    		<artifactId>json-smart</artifactId>
-    		<version>2.3</version>
-		</dependency>		
-		
 		
 		<!-- mssqlJDBC connection -->
 		<dependency>
-				<groupId>com.microsoft.sqlserver</groupId>
-				<artifactId>mssql-jdbc</artifactId>
-				<version>6.1.0.jre8</version>
-				<scope>test</scope>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<!-- Cucumber -->
@@ -206,7 +198,7 @@
 		<dependency>
     		<groupId>io.cucumber</groupId>
     		<artifactId>cucumber-expressions</artifactId>
-    		<version>6.2.0</version>
+    		<version>7.0.2</version>
 		</dependency>
 		
 		
@@ -263,6 +255,14 @@
       		<version>3.6.0</version>
       		<scope>provided</scope>
       	</dependency>
+      	
+      	<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+		<dependency>
+    		<groupId>org.apache.pdfbox</groupId>
+    		<artifactId>pdfbox</artifactId>
+    		<version>2.0.15</version>
+		</dependency>
+      	
 		
 		
 	</dependencies>
