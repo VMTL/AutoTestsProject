@@ -3,7 +3,7 @@ package cucumber.stepDefinitions;
 import browsers.ChromeDriverSet;
 import browsers.FireFoxDriverSet;
 import cucumber.api.Result;
-import cucumber.api.Scenario;
+import io.cucumber.core.api.Scenario;
 import interfaces.InterfaceSeleniumDriver;
 
 public class cucBaseTest {
@@ -12,8 +12,8 @@ public class cucBaseTest {
 
 	public void takeScreenOnFailure(Scenario cucScenario){
 		System.out.print("SCENARIO " + cucScenario.getName());
-		if(cucScenario.getStatus() == Result.Type.FAILED){
-			System.out.println(" FAILED at lines " + cucScenario.getLines());
+		if(cucScenario.getStatus().toString().equals(Result.Type.FAILED.toString())){
+			System.out.println(" FAILED at lines " + cucScenario.getLine());
 			driver.takeScreenShotBytes();
 			System.out.println("Screenshot captured");
 		}

@@ -1,9 +1,9 @@
 package cucumber.runners;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.api.testng.PickleEventWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
+import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.CucumberFeatureWrapper;
+import io.cucumber.testng.PickleEventWrapper;
+import io.cucumber.testng.TestNGCucumberRunner;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

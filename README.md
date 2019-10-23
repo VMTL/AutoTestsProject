@@ -1,23 +1,36 @@
-# Java test automation
+# Java Spring Boot CRUD with test automation
 
-This is a sample test automation project, covering UI and API tests
+This is a sample spring boot CRUD application with API tests
 
 ## Tools:
 
 Maven
+Spring boot
+H2 database
+Lombok
 TestNG
+RestAssured
 Cucumber-JVM4
 Selenium Webdriver
-RestAssured
 Allure Reports 2
 
 Includes sequential test runs in a cross-browser environment via TestNG runner with Cucumber.
-In Cucumber tests browsers parameters are passed thorugh Scnario Outline, in TestNG browsers are passed from command line from Maven
+In Cucumber tests browsers parameters are passed through Scenario Outline, in TestNG browsers are passed from command line from Maven
 
-## Run:
+## Runnig the application:
 ```
-mvn clean test -DbrowsersMvn=Chrome,FF
+mvn spring-boot:run
+```
+
+## Runnig API tests while app is listening:
+```
+mvn test -Dsurefire.suiteXmlFiles=testng.xml
+```
+
+## Runnig UI tests:
+```
+mvn test -Dsurefire.suiteXmlFiles=testngUI.xml -DbrowsersMvn=Chrome,FF
 ```
 
 ## Reporting:
-Allure Reports results directoy is set to Jenkins project workspace, but can be changed to /target
+Allure Reports results directory is set to Jenkins project workspace, but can be changed to /target
