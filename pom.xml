@@ -35,44 +35,45 @@
 		<lombok.version>1.18.10</lombok.version>
   </properties>  
 
+
   <dependencies>
   		
   		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        	<version>${Spring.version}</version>
-        </dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${Spring.version}</version>
+      </dependency>
         
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
         	<version>${Spring.version}</version>
-        </dependency>
+      </dependency>
         
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
         	<version>${Spring.version}</version>
-            <scope>test</scope>
-        </dependency>
+          <scope>test</scope>
+      </dependency>
         
-        <dependency>
+    <dependency>
     		<groupId>com.h2database</groupId>
     		<artifactId>h2</artifactId>
     		<version>${H2.version}</version>
-            <scope>runtime</scope>
+        <scope>runtime</scope>
 		</dependency>
 		
-		<dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>${javax.persistence-api.version}</version>
-        </dependency>
+		  <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>${javax.persistence-api.version}</version>
+      </dependency>
    		
    		<dependency>
-       		<groupId>org.slf4j</groupId>
-       		<artifactId>slf4j-log4j12</artifactId>
-       		<version>${sel4j.version}</version>
+       	<groupId>org.slf4j</groupId>
+       	<artifactId>slf4j-log4j12</artifactId>
+       	<version>${sel4j.version}</version>
    		</dependency>
 
    		<dependency>
