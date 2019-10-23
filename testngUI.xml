@@ -12,5 +12,17 @@
       		<class name="tests.API_Tests" />
     	</classes>
   	</test>
+<!--
+ 	<test name="Running UI tests">
+    	<classes>
+      		<class name="tests.SmokeTestNG" />
+    	</classes>
+  	</test>
 
+  	<test name="Running UI tests with Cucumber">
+    	<classes>
+      		<class name="cucumber.runners.CucumberTestNGrunner" />
+    	</classes>
+  	</test>
+-->
 </suite> <!-- Suite -->

@@ -10,6 +10,13 @@
   <name>AutoTestsProject</name>
   <url>http://maven.apache.org</url>
 
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.9.RELEASE</version>
+    <relativePath/>
+  </parent>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectjweaver.version>1.9.4</aspectjweaver.version>
@@ -21,39 +28,95 @@
 		<Cucumber.version>4.5.2</Cucumber.version>
 		<allure.version>2.12.1</allure.version>
 		<jackson.version>2.10.0</jackson.version>
-  </properties>
+		<H2.version>1.4.200</H2.version>
+		<javax.persistence-api.version>2.2</javax.persistence-api.version>
+		<Spring.version>2.1.9.RELEASE</Spring.version>
+		<sel4j.version>1.7.28</sel4j.version>
+		<lombok.version>1.18.10</lombok.version>
+  </properties>  
+
 
   <dependencies>
+  		
+  		<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${Spring.version}</version>
+      </dependency>
+        
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+        	<version>${Spring.version}</version>
+      </dependency>
+        
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+        	<version>${Spring.version}</version>
+          <scope>test</scope>
+      </dependency>
+        
+    <dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<version>${H2.version}</version>
+        <scope>runtime</scope>
+		</dependency>
+		
+		  <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>${javax.persistence-api.version}</version>
+      </dependency>
+   		
+   		<dependency>
+       	<groupId>org.slf4j</groupId>
+       	<artifactId>slf4j-log4j12</artifactId>
+       	<version>${sel4j.version}</version>
+   		</dependency>
+
+   		<dependency>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    		<version>${lombok.version}</version>
+    		<scope>provided</scope>
+		</dependency>
   
 		<!-- Selenium -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${Selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-api</artifactId>
 			<version>${Selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>${Selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
 			<version>${Selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-support</artifactId>
 			<version>${Selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
@@ -69,6 +132,7 @@
     		<groupId>com.paulhammant</groupId>
     		<artifactId>ngwebdriver</artifactId>
     		<version>1.1.4</version>
+			<scope>test</scope>
 		</dependency>		
 		
 		
@@ -88,15 +152,12 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
     		<groupId>com.google.code.gson</groupId>
     		<artifactId>gson</artifactId>
     		<version>2.8.5</version>
 		</dependency>
 		
-		
-		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
@@ -130,18 +191,28 @@
 			<groupId>io.rest-assured</groupId>
     		<artifactId>rest-assured</artifactId>
 			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured-all</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>io.rest-assured</groupId>
     		<artifactId>json-schema-validator</artifactId>
 			<version>${RESTassured.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>io.rest-assured</groupId>
     		<artifactId>json-path</artifactId>
 			<version>${RESTassured.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
@@ -173,12 +244,14 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
 			<version>${Cucumber.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-jvm</artifactId>
 			<version>${Cucumber.version}</version>
+			<scope>test</scope>
 			<type>pom</type>
 		</dependency>
 		
@@ -186,6 +259,7 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>${Cucumber.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
@@ -199,6 +273,7 @@
     		<groupId>io.cucumber</groupId>
     		<artifactId>cucumber-expressions</artifactId>
     		<version>7.0.2</version>
+			<scope>test</scope>
 		</dependency>
 		
 		
@@ -215,18 +290,21 @@
     		<groupId>io.qameta.allure</groupId>
     		<artifactId>allure-cucumber4-jvm</artifactId>
     		<version>${allure.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-testng</artifactId>
 			<version>${allure.version}</version>
+			<scope>test</scope>
 		</dependency>
 		
 		<dependency>
     		<groupId>io.qameta.allure</groupId>
     		<artifactId>allure-rest-assured</artifactId>
     		<version>${allure.version}</version>
+			<scope>test</scope>
 		</dependency>
 				
 		<!-- Jackson -->
@@ -256,13 +334,11 @@
       		<scope>provided</scope>
       	</dependency>
       	
-      	<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
 		<dependency>
     		<groupId>org.apache.pdfbox</groupId>
     		<artifactId>pdfbox</artifactId>
     		<version>2.0.15</version>
 		</dependency>
-      	
 		
 		
 	</dependencies>
@@ -294,12 +370,19 @@
 			</plugin>
 			
 			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${Spring.version}</version>
+            </plugin>
+			
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M3</version>
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testngUI.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<argLine>
                     	-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
