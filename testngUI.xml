@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Test Suite">
+<suite name="UI Test Suite">
 
-    <listeners>
-        <listener class-name="helpers.CustomizeListenerTNG" />
-    </listeners>
-
-    <test name="Running UI tests">
+ 	<test name="Running UI tests">
     	<classes>
-      		<class name="tests.SmokeTestNG" />
+      		<class name="tests.ui.SmokeTestNG" />
     	</classes>
-    </test>
+  	</test>
 
-    <test name="Running UI tests with Cucumber">
+  	<test name="Running UI tests with Cucumber">
     	<classes>
-      		<class name="cucumber.runners.CucumberTestNGrunner" />
+      		<class name="cucumber.ui.runners.CucumberTestNGrunner" />
     	</classes>
-    </test>
+  	</test>
 
 </suite> <!-- Suite -->

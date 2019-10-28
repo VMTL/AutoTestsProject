@@ -1,4 +1,4 @@
-package tests;
+package tests.ui;
 
 import org.testng.annotations.Test;
 
@@ -23,7 +23,7 @@ public class SmokeTestNG extends BaseTestNG{
 	
 	private InvestingHome homePage;
 
-	@Factory(dataProvider = "factoryBrowser", dataProviderClass = tests.DataProviders.class)
+	@Factory(dataProvider = "factoryBrowser", dataProviderClass = tests.ui.DataProviders.class)
 	private SmokeTestNG(InterfaceSeleniumDriver driver) {
 		super(driver);
 		homePage = new InvestingHome(driver);

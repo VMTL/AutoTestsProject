@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Test Suite">
+<suite name="API and Integration test suite">
 
 	<listeners>
         <listener class-name="helpers.CustomizeListenerTNG" />
@@ -9,7 +9,13 @@
 
     <test name="Running API test">
     	<classes>
-      		<class name="tests.API_Tests" />
+      		<class name="tests.api.API_Tests" />
+    	</classes>
+  	</test>
+  	
+  	<test name="Running Integration test">
+    	<classes>
+      		<class name="tests.integration.RepositoryTest" />
     	</classes>
   	</test>
 

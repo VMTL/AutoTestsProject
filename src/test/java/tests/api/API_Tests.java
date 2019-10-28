@@ -1,12 +1,17 @@
-package tests;
+package tests.api;
 
 import static org.testng.Assert.assertEquals;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -16,25 +21,32 @@ import helpers.JSONparser;
 import helpers.Read_Excel;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import restAPIcrud.Application;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes=Application.class, webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class API_Tests extends AbstractTestNGSpringContextTests {
 
 	private Map<String, String> headersMap;
 	private Map<String, String> parametersMap;
 	private Read_Excel readExcel;
 	private static final String baseUri = "https://www.alphavantage.co/";
-	private static final String baseUriLocal = "http://localhost:4448/api/products/";
+	private String baseUriRandom;
 	
-	@BeforeClass(description = "Reading data from excel to prepare API call")
-	public void setUp() {
-		//READ TEST CASES PARAMETERS FROM EXCEL FILE
+    @LocalServerPort
+    private int randomServerPort;
+
+    @PostConstruct
+    public void postConstruct(){        
 		this.readExcel = new Read_Excel(System.getProperty("user.dir") + "\\resources\\Test_Cases.xlsx");
 		
 		// FETCH HEADERS AND PARAMETERS DATA FROM EXCEL SHEET AND PUT IT INTO THE HASHMAP
-		headersMap = new HashMap<String, String>(readExcel.excelToMap("Header"));
-		parametersMap = new HashMap<String, String>(readExcel.excelToMap("Parameters"));
+		this.headersMap = new HashMap<String, String>(readExcel.excelToMap("Header"));
+		this.parametersMap = new HashMap<String, String>(readExcel.excelToMap("Parameters"));
+		
+		this.baseUriRandom = "http://localhost:" + this.randomServerPort + "/api/products/";
 	}
-	
+    
 	@Test(description="Testing Global Quote data")
 	public void alphaVantageMSFT(){
 		Response httpRequest = RestAssured
@@ -53,11 +65,11 @@ public class API_Tests extends AbstractTestNGSpringContextTests {
 	}
 	
 	@Test(description="Testing product creation", dataProvider="products")
-	public void createProductTest(String product) {		
+	public void createProductTest(String product) {
 		Response httpRequest = RestAssured
 				.given()
 					.contentType("application/json")
-					.baseUri(baseUriLocal)
+					.baseUri(baseUriRandom)
 					.body(product)
 				.when()
 					.post()
