@@ -1,4 +1,4 @@
-package tests;
+package tests.ui;
 
 import static org.testng.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ public class angularTest extends BaseTestNG{
 	
 	private angularHome angPage;
 
-	@Factory(dataProvider = "factoryBrowser", dataProviderClass = tests.DataProviders.class)
+	@Factory(dataProvider = "factoryBrowser", dataProviderClass = tests.ui.DataProviders.class)
 	public angularTest(InterfaceSeleniumDriver driver) {
 		super(driver);
 		angPage = new angularHome(driver);

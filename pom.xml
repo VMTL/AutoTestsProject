@@ -4,7 +4,7 @@
 
   <groupId>TestsGroup</groupId>
   <artifactId>AutoTestsProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.2.RELEASE</version>
   <packaging>jar</packaging>
 
   <name>AutoTestsProject</name>
@@ -21,7 +21,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aspectjweaver.version>1.9.4</aspectjweaver.version>
 		<jenkinsWorkspaceAllure.path>C:\Jenkins\workspace\AutomationTest</jenkinsWorkspaceAllure.path>
-		<testNG.version>6.14.3</testNG.version>
+		<testNG.version>7.0.0</testNG.version>
 		<Selenium.version>3.14.0</Selenium.version>
 		<ApachePOI.version>3.9</ApachePOI.version>
 		<RESTassured.version>4.1.2</RESTassured.version>
@@ -68,12 +68,6 @@
             <artifactId>javax.persistence-api</artifactId>
             <version>${javax.persistence-api.version}</version>
         </dependency>
-   		
-   		<dependency>
-       		<groupId>org.slf4j</groupId>
-       		<artifactId>slf4j-log4j12</artifactId>
-       		<version>${sel4j.version}</version>
-   		</dependency>
 
    		<dependency>
     		<groupId>org.projectlombok</groupId>
@@ -361,7 +355,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.0</version>
+				<version>3.8.1</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -377,7 +371,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M3</version>
+				<version>2.22.2</version>
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
@@ -402,13 +396,12 @@
                 	<properties>
                 		<property>
                 			<name>CustomizeListenerTNG</name>
-              				<!--<value>helpers.CustomizeListenerTNG</value>-->
                 		</property>
                 		<property>
               				<name>usedefaultlisteners</name>
               				<value>false</value> <!-- disabling default to generate regular testng reports -->
             			</property>
-                	</properties>     	
+                	</properties>
 				</configuration>
 				<dependencies>
 					<dependency>

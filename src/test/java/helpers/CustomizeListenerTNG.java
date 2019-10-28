@@ -30,7 +30,7 @@ public class CustomizeListenerTNG implements ITestListener {
 		
 		Throwable throwable = testResult.getThrowable();
         String originalMessage = throwable.getMessage();
-        if(originalMessage.contains("java.lang.AssertionError:")) {
+        if(originalMessage != null && originalMessage.contains("java.lang.AssertionError:")) {
         	String modifiedMessage = originalMessage.replace("java.lang.AssertionError:", "").trim();
         	Throwable throwableNew = new Throwable(modifiedMessage);
         	System.out.println("Assertion error: " + modifiedMessage);
