@@ -47,7 +47,7 @@ public class RepositoryTest extends AbstractTestNGSpringContextTests{
         assertTrue(productRepositary.findById(Long.valueOf(1)).isPresent() == false);
     }
     
-    @Test(description="Check a new product added", dataProvider="products", priority=1)
+    @Test(description="Check a new product addition", dataProvider="products", priority=1)
     public void testAddProduct(String product) {
     	JsonObject json = new JSONparser().jsonObjFromString(product);
     	Product prod = new Product();
