@@ -25,6 +25,7 @@ mvn spring-boot:run
 ## Runnig API tests while app is listening:
 ```
 mvn test -Dsurefire.suiteXmlFiles=testng.xml
+mvn test -Dsurefire.suiteXmlFiles=testngSoap.xml
 ```
 
 ## Runnig UI tests:
