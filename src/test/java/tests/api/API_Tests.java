@@ -17,11 +17,11 @@ import org.testng.annotations.Test;
 
 import com.google.gson.JsonObject;
 
+import application.Application;
 import helpers.JSONparser;
 import helpers.Read_Excel;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import restAPIcrud.Application;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=Application.class, webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT)

@@ -1,4 +1,4 @@
-package restAPIcrud.controller;
+package application.rest.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.jpaEntity.Product;
+import application.jpaEntity.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import restAPIcrud.jpaEntity.Product;
-import restAPIcrud.jpaEntity.ProductService;
 
 
 @RestController

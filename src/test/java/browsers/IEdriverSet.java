@@ -27,4 +27,8 @@ public class IEdriverSet extends AbstractDriver {
 	public void setProxy(Proxy proxy){
 		ieOptions.setProxy(proxy);
 	}
+
+	@Override
+	public void setHeadless() {		
+	}
 }
