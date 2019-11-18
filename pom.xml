@@ -367,4 +367,870 @@
 			
 		</plugins>
 	</build>
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>TestsGroup</groupId>
+  <artifactId>AutoTestsProject</artifactId>
+  <version>1.0.2.RELEASE</version>
+  <packaging>jar</packaging>
+
+  <name>AutoTestsProject</name>
+  <url>http://maven.apache.org</url>
+
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.9.RELEASE</version>
+    <relativePath/>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectjweaver.version>1.9.4</aspectjweaver.version>
+		<jenkinsWorkspaceAllure.path>C:\Jenkins\workspace\AutomationTest</jenkinsWorkspaceAllure.path>
+		<testNG.version>7.0.0</testNG.version>
+		<Selenium.version>3.14.0</Selenium.version>
+		<ApachePOI.version>3.9</ApachePOI.version>
+		<RESTassured.version>4.1.2</RESTassured.version>
+		<Cucumber.version>4.5.2</Cucumber.version>
+		<allure.version>2.12.1</allure.version>
+		<jackson.version>2.10.0</jackson.version>
+		<H2.version>1.4.200</H2.version>
+		<javax.persistence-api.version>2.2</javax.persistence-api.version>
+		<Spring.version>2.1.9.RELEASE</Spring.version>
+		<sel4j.version>1.7.28</sel4j.version>
+		<lombok.version>1.18.10</lombok.version>
+  </properties>  
+
+  <dependencies>
+  		
+  		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        	<version>${Spring.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        	<version>${Spring.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        	<version>${Spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<version>${H2.version}</version>
+            <scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>${javax.persistence-api.version}</version>
+        </dependency>
+
+   		<dependency>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    		<version>${lombok.version}</version>
+    		<scope>provided</scope>
+		</dependency>
+  
+		<!-- Selenium -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Angular JS webDriver -->
+		
+		<dependency>
+    		<groupId>com.paulhammant</groupId>
+    		<artifactId>ngwebdriver</artifactId>
+    		<version>1.1.4</version>
+			<scope>test</scope>
+		</dependency>		
+		
+		
+		<!-- For Wait Until Expected Conditions -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+		
+		
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNG.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.google.code.gson</groupId>
+    		<artifactId>gson</artifactId>
+    		<version>2.8.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Apache Poi For EXCEL-->
+		<dependency>
+    		<groupId>org.apache.poi</groupId>
+    		<artifactId>poi</artifactId>
+    		<version>${ApachePOI.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.poi</groupId>
+    		<artifactId>poi-ooxml</artifactId>
+    		<version>${ApachePOI.version}</version>
+		</dependency>
+		
+		
+		<!-- RestAssured -->
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured-all</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-schema-validator</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-path</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.hamcrest</groupId>
+    		<artifactId>hamcrest-all</artifactId>
+    		<version>1.3</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		
+		<!-- mssqlJDBC connection -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Cucumber -->
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java8</artifactId>
+			<version>${Cucumber.version}</version>
+        	<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-core</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${Cucumber.version}</version>
+        	<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.cucumber</groupId>
+    		<artifactId>cucumber-expressions</artifactId>
+    		<version>7.0.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<dependency>
+    		<groupId>io.cucumber</groupId>
+    		<artifactId>gherkin</artifactId>
+    		<version>5.1.0</version>
+    		<scope>provided</scope>
+		</dependency>
+		
+		<!-- Allure reporting -->
+
+		<dependency>
+    		<groupId>io.qameta.allure</groupId>
+    		<artifactId>allure-cucumber4-jvm</artifactId>
+    		<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.qameta.allure</groupId>
+    		<artifactId>allure-rest-assured</artifactId>
+    		<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+				
+		<!-- Jackson -->
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+      		<groupId>org.apache.maven.plugin-tools</groupId>
+      		<artifactId>maven-plugin-annotations</artifactId>
+      		<version>3.6.0</version>
+      		<scope>provided</scope>
+      	</dependency>
+      	
+		<dependency>
+    		<groupId>org.apache.pdfbox</groupId>
+    		<artifactId>pdfbox</artifactId>
+    		<version>2.0.15</version>
+		</dependency>
+		
+		
+	</dependencies>
+	
+	
+	<build>
+		<!--
+		<testResources>
+        	<testResource>
+            	<directory>src/test/resources</directory>
+            	<filtering>true</filtering>
+      			<includes>
+        			<include>maven.properties</include>
+      			</includes>
+        	</testResource>
+    	</testResources>
+		-->
+		
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${Spring.version}</version>
+            </plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testngUI.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<argLine>
+                    	-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
+                	</argLine>
+                	<systemProperties>
+                    	<property>
+                        	<name>allure.results.directory</name>
+                        	<!-- <value>${basedir}/target/allure-results</value>-->
+                        	<!-- Workaround for Jenkins Allure plugin to pop-up the report -->
+                        	<value>${jenkinsWorkspaceAllure.path}/allure-results</value>
+                    	</property>
+                	</systemProperties>
+                	
+                    <systemPropertyVariables>
+                        <browsers>${browsersMvn}</browsers>
+                    </systemPropertyVariables>
+                     
+                	<properties>
+                		<property>
+                			<name>CustomizeListenerTNG</name>
+                		</property>
+                		<property>
+              				<name>usedefaultlisteners</name>
+              				<value>false</value> <!-- disabling default to generate regular testng reports -->
+            			</property>
+                	</properties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectjweaver.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+			<plugin>
+    			<groupId>io.qameta.allure</groupId>
+    			<artifactId>allure-maven</artifactId>
+    			<version>${allure.version}</version>
+    			<configuration>
+    				<reportVersion>${allure.version}</reportVersion>
+                	<!-- <resultsDirectory>${basedir}/target/allure-results</resultsDirectory> -->
+        			<reportDirectory>${basedir}/target/allure-reports</reportDirectory>
+    			</configuration>
+			</plugin>
+			
+		</plugins>
+		
+	</build>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>TestsGroup</groupId>
+  <artifactId>AutoTestsProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>AutoTestsProject</name>
+  <url>http://maven.apache.org</url>
+
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.9.RELEASE</version>
+    <relativePath/>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectjweaver.version>1.9.4</aspectjweaver.version>
+		<jenkinsWorkspaceAllure.path>C:\Jenkins\workspace\AutomationTest</jenkinsWorkspaceAllure.path>
+		<testNG.version>6.14.3</testNG.version>
+		<Selenium.version>3.14.0</Selenium.version>
+		<ApachePOI.version>3.9</ApachePOI.version>
+		<RESTassured.version>4.1.2</RESTassured.version>
+		<Cucumber.version>4.5.2</Cucumber.version>
+		<allure.version>2.12.1</allure.version>
+		<jackson.version>2.10.0</jackson.version>
+		<H2.version>1.4.200</H2.version>
+		<javax.persistence-api.version>2.2</javax.persistence-api.version>
+		<Spring.version>2.1.9.RELEASE</Spring.version>
+		<sel4j.version>1.7.28</sel4j.version>
+		<lombok.version>1.18.10</lombok.version>
+  </properties>  
+
+
+  <dependencies>
+  		
+  		<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${Spring.version}</version>
+      </dependency>
+        
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+        	<version>${Spring.version}</version>
+      </dependency>
+        
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+        	<version>${Spring.version}</version>
+          <scope>test</scope>
+      </dependency>
+        
+    <dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<version>${H2.version}</version>
+        <scope>runtime</scope>
+		</dependency>
+		
+		  <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>${javax.persistence-api.version}</version>
+      </dependency>
+   		
+   		<dependency>
+       	<groupId>org.slf4j</groupId>
+       	<artifactId>slf4j-log4j12</artifactId>
+       	<version>${sel4j.version}</version>
+   		</dependency>
+
+   		<dependency>
+    		<groupId>org.projectlombok</groupId>
+    		<artifactId>lombok</artifactId>
+    		<version>${lombok.version}</version>
+    		<scope>provided</scope>
+		</dependency>
+  
+		<!-- Selenium -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>${Selenium.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Angular JS webDriver -->
+		
+		<dependency>
+    		<groupId>com.paulhammant</groupId>
+    		<artifactId>ngwebdriver</artifactId>
+    		<version>1.1.4</version>
+			<scope>test</scope>
+		</dependency>		
+		
+		
+		<!-- For Wait Until Expected Conditions -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+		
+		
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNG.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.google.code.gson</groupId>
+    		<artifactId>gson</artifactId>
+    		<version>2.8.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Apache Poi For EXCEL-->
+		<dependency>
+    		<groupId>org.apache.poi</groupId>
+    		<artifactId>poi</artifactId>
+    		<version>${ApachePOI.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.poi</groupId>
+    		<artifactId>poi-ooxml</artifactId>
+    		<version>${ApachePOI.version}</version>
+		</dependency>
+		
+		
+		<!-- RestAssured -->
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.rest-assured</groupId>
+    		<artifactId>rest-assured-all</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-schema-validator</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+    		<artifactId>json-path</artifactId>
+			<version>${RESTassured.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.hamcrest</groupId>
+    		<artifactId>hamcrest-all</artifactId>
+    		<version>1.3</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		
+		<!-- mssqlJDBC connection -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>6.1.0.jre8</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Cucumber -->
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java8</artifactId>
+			<version>${Cucumber.version}</version>
+        	<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-core</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+			<type>pom</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${Cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${Cucumber.version}</version>
+        	<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.cucumber</groupId>
+    		<artifactId>cucumber-expressions</artifactId>
+    		<version>7.0.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<dependency>
+    		<groupId>io.cucumber</groupId>
+    		<artifactId>gherkin</artifactId>
+    		<version>5.1.0</version>
+    		<scope>provided</scope>
+		</dependency>
+		
+		<!-- Allure reporting -->
+
+		<dependency>
+    		<groupId>io.qameta.allure</groupId>
+    		<artifactId>allure-cucumber4-jvm</artifactId>
+    		<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>io.qameta.allure</groupId>
+    		<artifactId>allure-rest-assured</artifactId>
+    		<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency>
+				
+		<!-- Jackson -->
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    		<version>${jackson.version}</version>
+		</dependency>
+		
+		<dependency>
+      		<groupId>org.apache.maven.plugin-tools</groupId>
+      		<artifactId>maven-plugin-annotations</artifactId>
+      		<version>3.6.0</version>
+      		<scope>provided</scope>
+      	</dependency>
+      	
+		<dependency>
+    		<groupId>org.apache.pdfbox</groupId>
+    		<artifactId>pdfbox</artifactId>
+    		<version>2.0.15</version>
+		</dependency>
+		
+		
+	</dependencies>
+	
+	
+	<build>
+		<!--
+		<testResources>
+        	<testResource>
+            	<directory>src/test/resources</directory>
+            	<filtering>true</filtering>
+      			<includes>
+        			<include>maven.properties</include>
+      			</includes>
+        	</testResource>
+    	</testResources>
+		-->
+		
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${Spring.version}</version>
+            </plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testngUI.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<argLine>
+                    	-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"
+                	</argLine>
+                	<systemProperties>
+                    	<property>
+                        	<name>allure.results.directory</name>
+                        	<!-- <value>${basedir}/target/allure-results</value>-->
+                        	<!-- Workaround for Jenkins Allure plugin to pop-up the report -->
+                        	<value>${jenkinsWorkspaceAllure.path}/allure-results</value>
+                    	</property>
+                	</systemProperties>
+                	
+                    <systemPropertyVariables>
+                        <browsers>${browsersMvn}</browsers>
+                    </systemPropertyVariables>
+                     
+                	<properties>
+                		<property>
+                			<name>CustomizeListenerTNG</name>
+              				<!--<value>helpers.CustomizeListenerTNG</value>-->
+                		</property>
+                		<property>
+              				<name>usedefaultlisteners</name>
+              				<value>false</value> <!-- disabling default to generate regular testng reports -->
+            			</property>
+                	</properties>     	
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectjweaver.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+			<plugin>
+    			<groupId>io.qameta.allure</groupId>
+    			<artifactId>allure-maven</artifactId>
+    			<version>${allure.version}</version>
+    			<configuration>
+    				<reportVersion>${allure.version}</reportVersion>
+                	<!-- <resultsDirectory>${basedir}/target/allure-results</resultsDirectory> -->
+        			<reportDirectory>${basedir}/target/allure-reports</reportDirectory>
+    			</configuration>
+			</plugin>
+			
+		</plugins>
+		
+	</build>
 </project>
