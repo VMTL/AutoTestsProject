@@ -1,6 +1,6 @@
 # Java Spring Boot CRUD with test automation
 
-This is a sample spring boot CRUD application with API tests
+This is a sample of a spring boot CRUD application based on REST and SOAP web-services
 
 ## Tools:
 
@@ -10,6 +10,7 @@ H2 database
 Lombok
 TestNG
 RestAssured
+SAAJ
 Cucumber-JVM4
 Selenium Webdriver
 Allure Reports 2
