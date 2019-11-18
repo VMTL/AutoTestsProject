@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="API and Integration test suite">
+
+	<listeners>
+        <listener class-name="helpers.CustomizeListenerTNG" />
+    </listeners>
+
+    <test name="Running SOAP API tests">
+    	<classes>
+      		<class name="tests.api.SoapTests" />
+    	</classes>
+  	</test>
+
+</suite>

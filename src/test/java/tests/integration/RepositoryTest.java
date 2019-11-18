@@ -15,11 +15,11 @@ import org.testng.annotations.Test;
 
 import com.google.gson.JsonObject;
 
+import application.Application;
+import application.jpaEntity.Product;
+import application.repository.ProductRepository;
 import helpers.JSONparser;
 import helpers.Read_Excel;
-import restAPIcrud.Application;
-import restAPIcrud.jpaEntity.Product;
-import restAPIcrud.repository.ProductRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)

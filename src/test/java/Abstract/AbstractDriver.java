@@ -29,6 +29,7 @@ public abstract class AbstractDriver implements InterfaceSeleniumDriver {
 	public WebDriver driver;
 	
 	public abstract void driverInitialize();
+	public abstract void setHeadless();
 	public abstract void setProxy(Proxy proxy);
 	
 	public NgWebDriver ngDriverInitialize() {
@@ -40,7 +41,8 @@ public abstract class AbstractDriver implements InterfaceSeleniumDriver {
     		System.out.println("Closing a browser");
     		driver.quit();
     	}
-    	else {System.out.println("Browser has been already closed");}
+    	else
+    		System.out.println("Browser has been already closed");
     }
 	
 	public Options browserManage() {

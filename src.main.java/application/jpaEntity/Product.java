@@ -1,4 +1,4 @@
-package restAPIcrud.jpaEntity;
+package application.jpaEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,4 +27,13 @@ public class Product {
 
     @Column(name = "price", nullable = false)
 	private Double price;
+    
+    public Product() {}
+    
+    public Product(String name, String description, double price) {
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+
 }
