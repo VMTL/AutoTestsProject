@@ -28,7 +28,7 @@
 		<jenkinsWorkspaceAllure.path>C:\Jenkins\workspace\AutomationTest</jenkinsWorkspaceAllure.path>
 		<testNG.version>7.0.0</testNG.version>
 		<Selenium.version>3.14.0</Selenium.version>
-		<ApachePOI.version>3.9</ApachePOI.version>
+		<ApachePOI.version>4.1.2</ApachePOI.version>
 		<RESTassured.version>4.1.2</RESTassured.version>
 		<Cucumber.version>4.5.2</Cucumber.version>
 		<allure.version>2.12.1</allure.version>
